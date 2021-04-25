@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Playfair+Display&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*---------------------------------------------------------*/
+
+* {box-sizing: border-box;}
+
+:root
+{
+  --color--base: #333333;
+  --color--accent: #E91E79;
+  --color--white: #FFFFFF;
+  --headline-y-offset: 100px;
+  --column-count: 3;
+  /* --image-spacing: 40px; */
+  --image-spacing: 5px;
+}
+
+::-moz-selection {background-color: var(--color--accent); color: #FFFFFF}
+::selection {background-color: var(--color--accent); color: #FFFFFF}
+
+a:link
+,a:visited
+,a:hover
+,a:active {color: var(--color--accent);}
+
+.text-center {text-align: center;}
+
+body
+{
+  background: #FFFFFF url('img/background_faded.jpg') 50% 0 no-repeat;
+  background-size: contain;
+}
+
+.section {justify-content: center; display: flex;}
+.section + .section {margin-top: 6em;}
+
+nav
+,.content
+{
+  align-items: center;
+  display: flex;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.content {flex-direction: column; padding: 0 25px;}
+.nav_container {background-color: #FFFFFF;}
+nav {justify-content: space-between; padding: 10px;}
+.menu {display: flex;}
+.menu_item + .menu_item {margin-left: 20px;}
+
+.menu_button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.menu_button:hover {color: var(--color--accent);}
+.logo {font-size: 2em;}
+
+.logo
+,.headline
+,.section_heading
+,.subgroup_heading
+,.heading {font-family: 'Playfair Display', serif;}
+
+.logo
+,.menu_button
+,.headline
+,.section_heading
+,.subgroup_heading
+,.heading
+,.body
+,.contact_body {color: var(--color--base);}
+
+main {padding-bottom: 5em;}
+
+@keyframes fadein
+{
+  0% {opacity: 0; transform: translateY(var(--headline-y-offset));}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+.headline_container
+{
+  align-items: center;
+  animation: fadein 2s ease-in-out 400ms forwards;
+  background-color: rgba(255,255,255,0.5);
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  opacity: 0;
+  padding: 3em;
+  transform: translateY(var(--headline-y-offset));
+}
+
+.headline {font-size: 10vw; text-align: center;}
+
+@media screen and (min-width: 1600px) { .headline {font-size: 10em;} }
+
+.subhead
+,.body
+,.contact_body
+{
+  font-family: 'PT Serif', serif;
+  font-size: 1em;
+  max-width: 900px;
+}
+
+.subhead
+,.body {line-height: 1.8;}
+
+.subhead {margin-top: 2em;}
+.section#portfolio {margin-top: 1250px;}
+.section_heading {font-size: 3.5em; margin-bottom: 1em; text-align: center;}
+.subgroup_heading {font-size: 2em;}
+.body + .body {margin-top: 20px;}
+.contact_body {line-height: 1;}
+.contact_body + .contact_body {margin-top: 10px;}
+.bio_container {margin-top: 2em;}
+
+.portfolio_subgroup_container + .portfolio_subgroup_container
+{
+  margin-top: 100px;
+}
+
+.column_container
+,.portfolio_subgroup {display: flex;}
+.portfolio_subgroup {flex-direction: column;}
+.portfolio_subgroup + .portfolio_subgroup {margin-top: 3em;}
+
+.column_container
+{
+  justify-content: space-between;
+  margin-top: 2em;
+}
+
+.image_column
+{
+  width: calc(100%/var(--column-count) - (var(--image-spacing) * (var(--column-count) - 1))/var(--column-count));
+}
+
+.image {display: block; height: auto; max-width: 100%; width: 100%;}
+.image + .image {margin-top: var(--image-spacing);}
+.frame {border: 1px solid var(--color--base);}
+
